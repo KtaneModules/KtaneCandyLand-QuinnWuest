@@ -15,7 +15,12 @@ MonoBehaviour:
   title: Candy Land
   author: EpicToast
   description: "Candy Land: now with actual skill required.\nThis module was created
-    for the KTaNE Modding Jam.\r\n\nmoduleId: candyLand / cruelCandyLand\n\nManuals:\nhttps://ktane.timwi.de/HTML/Candy%Land.html\nhttps://ktane.timwi.de/HTML/Cruel%Candy%Land.html"
+    for the KTaNE Modding Jam.\r\n\nThis is a reupload of EpicToast's module with
+    changes and bug fixes. Unsubscribe from the old version here:\r\nhttps://steamcommunity.com/sharedfiles/filedetails/?id=2538222177\r\n\r\nCandy
+    Land:\r\n[url=https://ktane.timwi.de/HTML/Candy%20Land.html]Manual HTML[/url]\r\n[url=https://ktane.timwi.de/PDF/Candy%20Land.pdf]Manual
+    PDF[/url]\r\nCruel Candy Land\r\n[url=https://ktane.timwi.de/HTML/Cruel%20Candy%20Land.html]Manual
+    HTML[/url]\r\n[url=https://ktane.timwi.de/PDF/Cruel%20Candy%20Land.pdf]Manual
+    PDF[/url]"
   version: v1.0
   outputFolder: build
-  previewImage: {fileID: 2800000, guid: c5be576621be0a247a5ed386abf0f4e5, type: 3}
+  previewImage: {fileID: 2800000, guid: 75caf272968dfd347a4830b0d56d4d90, type: 3}
