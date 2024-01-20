@@ -218,7 +218,7 @@ public class CruelCandyLandScript : MonoBehaviour {
                     "IN", "AY", "WD", "SL", "WD",
                     "HR", "DR", "SK", "EE", "DT",
                     "KM", "ME", "DE", "DG", "DE",
-                    "SD", "SK", "CM", "PE", "CG"
+                    "SD", "SK", "CM", "JY", "CG"
                 };
                 string[] codenamesInner =
                 {
@@ -233,7 +233,7 @@ public class CruelCandyLandScript : MonoBehaviour {
                     "LLUSIO", "LCHEM", "IZAR", "PEL", "AN",
                     "AMBURGE", "INNE", "TEA", "DIBL", "ESSER",
                     "ABOO", "ODUL", "ETONAT", "EFUSIN", "YNAMIT",
-                    "PREA", "TUC", "RA", "RESERV", "LO"
+                    "PREA", "TUC", "RA", "ELL", "LO"
                 };
 
                 int codenamesRandom = Random.Range(0, 5);
