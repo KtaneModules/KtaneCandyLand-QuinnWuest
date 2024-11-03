@@ -4,6 +4,7 @@ using System.Text.RegularExpressions;
 using UnityEngine;
 using KModkit;
 using Random = UnityEngine.Random;
+using Newtonsoft.Json.Linq;
 
 public class CandyLandScript : MonoBehaviour {
 
@@ -164,24 +165,30 @@ public class CandyLandScript : MonoBehaviour {
 
     IEnumerator ProcessTwitchCommand(string command)
     {
-        command = command.Trim().ToUpperInvariant();
-        Match m = Regex.Match(command, @"^SUBMIT\s+([1-9]?[0-9])$");
+        Match m = Regex.Match(command, @"^\s*submit\s+(?<digit>\d+)\s*$");
         if (m.Success)
         {
+            int value;
+            if (!int.TryParse(m.Groups["digit"].Value, out value) || value < 1 || value > 31)
+                yield break;
             yield return null;
-            int target = int.Parse(m.Groups[1].Value);
-            KMSelectable which = screenNumber < target ? upArrow : downArrow;
-            while (screenNumber != target)
+            while (screenNumber != value)
             {
-                which.OnInteract();
+                if (screenNumber < value)
+                    upArrow.OnInteract();
+                else
+                    downArrow.OnInteract();
                 yield return new WaitForSeconds(0.1f);
             }
             screen.OnInteract();
+            yield break;
         }
-        else if (command.EqualsAny("COLORBLIND", "COLOURBLIND", "COLOR-BLIND", "COLOUR-BLIND", "CB"))
+        m = Regex.Match(command, @"^\s*cb|colou?rblind\s*$", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
+        if (m.Success)
         {
             yield return null;
             ToggleCB();
+            yield break;
         }
     }
 
@@ -189,14 +196,17 @@ public class CandyLandScript : MonoBehaviour {
     {
         while (!solved)
         {
-            KMSelectable which = screenNumber < correctAnswer ? upArrow : downArrow;
             while (screenNumber != correctAnswer)
             {
-                which.OnInteract();
+                if (screenNumber < correctAnswer)
+                    upArrow.OnInteract();
+                else
+                    downArrow.OnInteract();
                 yield return new WaitForSeconds(0.1f);
             }
             screen.OnInteract();
-            yield return new WaitForSeconds(0.1f);
+            if (!solved)
+                yield return new WaitForSeconds(0.1f);
         }
     }
 }
